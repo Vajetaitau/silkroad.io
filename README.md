@@ -23,3 +23,7 @@ Your app is ready to be deployed!
 
 Launches the application test runner.
 Run with the `--watch` flag (`npm test -- --watch`) to run in interactive watch mode.
+
+### Apie ką šis žaidimas?
+
+Žaidimo tikslas yra sukurti žaidimą, kurį būtų galima žaisti daugiau nei vienam žaidėjui tiesiog paprastoje chrome naršyklėje.Grafinis interfeisas turėtų būti kiek įmanoma paprastas, geras to pvz. būtų agar.io, kur veikėjas judina tašką su rodyklių mygtukais. Žaidėjas stengsis simuliuoti prekių gabenimą iš vieno miesto į kitą. Žaidėjas nugabenęs prekes į kitą miestą, automatiškai gaus už jas pinigų. Už pinigus bus galima pirkti kupranugarių, kurie gali nešti daugiau prekių arba kareivių, kurie gins kupranugarius nuo kitų žaidėjų kareivių.

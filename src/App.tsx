@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import logo from './logo.svg';
+import { Dot } from './atoms/dot/dot';
 import './App.css';
 
 interface AppProps {}
@@ -34,6 +35,7 @@ function App({}: AppProps) {
           </a>
         </p>
       </header>
+	  <Dot x={50} y={50}></Dot>
     </div>
   );
 }
