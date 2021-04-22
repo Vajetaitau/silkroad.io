@@ -1,43 +1,62 @@
 import React, { useState, useEffect } from 'react';
-import logo from './logo.svg';
+import {FullWidthRectangle} from './atoms/rectangle/rectangle';
 import { Dot } from './atoms/dot/dot';
+import styled from 'styled-components';
 import './App.css';
 
 interface AppProps {}
 
 function App({}: AppProps) {
-  // Create the count state.
-  const [count, setCount] = useState(0);
-  // Create the counter (+1 every second).
-  useEffect(() => {
-    const timer = setTimeout(() => setCount(count + 1), 1000);
-    return () => clearTimeout(timer);
-  }, [count, setCount]);
-  // Return the App component.
+	const [x, setX] = useState(50);
+	const [y, setY] = useState(50);	
+	const step = 5;
+	const windowHeight = window.innerHeight;
+	useEffect(() => {
+		function ArrowKeysListener(event: KeyboardEvent) {
+			console.log(x);
+			console.log(y);
+			switch (event.key) {
+				case "ArrowLeft":
+					if (x - step > 0) {
+						setX(x - step);
+					}
+					break;
+				case "ArrowRight":
+					if (x + step < window.innerWidth) {
+						setX(x + step);
+					}					
+					break;
+				case "ArrowUp":
+					if (y - step > 0) {
+						setY(y - step);
+					}					
+					break;
+				case "ArrowDown":
+					if (y + step < windowHeight) {
+						setY(y + step);
+					}					
+					break;
+			}
+		}
+		window.addEventListener('keydown', ArrowKeysListener);
+		return () => window.removeEventListener("keydown", ArrowKeysListener);
+	}, [x, y]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <p>
-          Page has been open for <code>{count}</code> seconds.
-        </p>
-        <p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </p>
-      </header>
-	  <Dot x={50} y={50}></Dot>
-    </div>
+	<Main height={innerHeight}>
+		<FullWidthRectangle height={"10%"} color={"grey"}></FullWidthRectangle>
+		<FullWidthRectangle height={"80%"} color={"white"}></FullWidthRectangle>
+		
+		<Dot x={x} y={y}></Dot>
+		<FullWidthRectangle height={"10%"} color={"grey"}></FullWidthRectangle>
+	</Main>
   );
 }
+
+const Main = styled.div(
+	({ height }: { height: number }) => `
+	height: ${height}px;
+  `,
+)
 
 export default App;
