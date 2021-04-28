@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {FullWidthRectangle} from './atoms/rectangle/rectangle';
 import { Dot } from './atoms/dot/dot';
+import { Camel } from './molecules/camel/camel';
 import styled from 'styled-components';
 import './App.css';
 
@@ -47,7 +48,8 @@ function App({}: AppProps) {
 		<FullWidthRectangle height={"10%"} color={"grey"}></FullWidthRectangle>
 		<FullWidthRectangle height={"80%"} color={"white"}></FullWidthRectangle>
 		
-		<Dot x={x} y={y}></Dot>
+		<Dot x={x} y={y} width={50} height={50} color={"#696969"}></Dot>
+		<Camel x={100} y={100}></Camel>
 		<FullWidthRectangle height={"10%"} color={"grey"}></FullWidthRectangle>
 	</Main>
   );
